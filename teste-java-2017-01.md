@@ -34,19 +34,19 @@ Para **Desenvolvedor I**:
 Para **Desenvolvedor II**:
  
 - Todos os critérios do Desenvolvedor I
-- Utilização de princípios SOLID
+- Uso adequado de padrões de projetos
 - Flexibilidade do código para futuras evoluções (ex: nova fonte de dados, novos comandos)
 
 
 Para **Desenvolvedor III**:
 
 - Todos os critérios do Desenvolvedor II
-- Uso adequado de padrões de projetos
+- Utilização de princípios SOLID
 - Otimizações em relação ao uso de memória
 
 
 Sobre a entrega
 -------------
 
-Deve ser criado um repositório público no GitHub com todo o código do programa e com instruções de como executá-lo e como executar os testes. O link do repositório deve ser enviado via email para taletos@involves.com.br com o título ***"[teste-java-2017-01] Nome do Candidato"*** até a data limite informada no email em que você recebeu o link para esse teste.
+Deve ser criado um repositório público no GitHub com todo o código do programa e com instruções de como executá-lo e como executar os testes. O link do repositório deve ser enviado via email para talentos@involves.com.br com o título ***"[teste-java-2017-01] Nome do Candidato"*** até a data limite informada no email em que você recebeu o link para esse teste.
 
