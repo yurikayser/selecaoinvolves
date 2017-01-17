@@ -46,4 +46,4 @@ Para fins de avaliação, será levado em consideração a complexidade da imple
 Sobre a entrega
 --
 
-Deve ser criado um repositório público no GitHub com todo o código do programa e com instruções de como executá-lo e como executar os testes. É importante que conste na descrição também um checklist com tudo o que foi implementado. O link do repositório deve ser enviado via email para taletos@involves.com.br com o título ***"[teste-iOS-2017-01] \<nome_do_candidato\>"*** até a data limite informada no email em que você recebeu o link para esse teste.
+Deve ser criado um repositório público no GitHub com todo o código do programa e com instruções de como executá-lo e como executar os testes. É importante que conste na descrição também um checklist com tudo o que foi implementado. O link do repositório deve ser enviado via email para ios@involves.com.br com o título ***"[teste-iOS-2017-01] \<nome_do_candidato\>"*** até a data limite informada no email em que você recebeu o link para esse teste.
