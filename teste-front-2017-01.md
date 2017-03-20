@@ -18,26 +18,19 @@ Você precisa construir uma aplicação para a pesquisa de perfis no GitHub, e d
 Sobre a avaliação
 --
 
-Os critérios de avaliação serão diferentes de acordo com o cargo em que o candidato se inscreveu (Desenvolvedor I, II ou III). 
-
-Para **Desenvolvedor I**:
+Para fins de avaliação, será levado em consideração a complexidade da implementação e os seguintes quesitos:
 
 - Nível de cumprimento dos requisitos
 - Estratégia de consumo da API
-
-Para **Desenvolvedor II**:
- 
-- Todos os critérios do Desenvolvedor I
 - Uso adequado de padrões de projetos
 - Flexibilidade do código para futuras evoluções (ex: buscar por issues do usuário ou pull requests)
 - Criação de testes unitários
-
-Para **Desenvolvedor III**:
-
-- Todos os critérios do Desenvolvedor II
 - Utilização de boas práticas da sua ferramenta escolhida
-- Autenticação de usuário (OAuth)
 - Abrangência dos testes unitários
+
+Bônus:
+
+- Autenticação de usuário (OAuth)
 
 ### Observações
 
@@ -57,4 +50,4 @@ Deve ser criado um repositório público no GitHub com todo o código do program
 
 Tente descrever toda a sua motivação e o que você fez no projeto, quanto mais informações você poder dar, isso fará muita diferença na sua seleção.
 
-O link do repositório deve ser enviado via email para ...@involves.com.br com o título ***"[teste-front-2017-01] \<nome_do_candidato\>"*** até a data limite informada no email em que você recebeu o link para esse teste.
+O link do repositório deve ser enviado via email para talentos@involves.com.br com o título ***"[teste-front-2017-01] \<nome_do_candidato\>"*** até a data limite informada no email em que você recebeu o link para esse teste.
