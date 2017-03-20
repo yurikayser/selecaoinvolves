@@ -35,7 +35,7 @@ Para **Desenvolvedor II**:
 Para **Desenvolvedor III**:
 
 - Todos os critérios do Desenvolvedor II
-- Utilização de boas da sua ferramenta escolhida
+- Utilização de boas práticas da sua ferramenta escolhida
 - Autenticação de usuário (OAuth)
 - Abrangência dos testes unitários
 
