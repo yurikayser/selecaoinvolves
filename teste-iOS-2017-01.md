@@ -24,7 +24,7 @@ Algumas outras funcionalidades que o fariam feliz são:
 - Possibilidade de buscar séries
 - Adicionar uma série na watch list
 
-E como bônus, algumas as funcionalidades implementadas podem ser acessíveis offline.
+E como bônus, algumas das funcionalidades implementadas podem ser acessíveis offline.
 
 Sobre a avaliação
 --
