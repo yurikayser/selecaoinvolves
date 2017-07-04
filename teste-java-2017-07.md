@@ -50,5 +50,5 @@ Para **Desenvolvedor III**:
 Sobre a entrega
 -------------
 
-Deve ser criado um repositório público no GitHub com todo o código do programa e com instruções de como executá-lo e como executar os testes. O link do repositório deve ser enviado via email para talentos@involves.com.br com o título ***"[teste-java-2017-01] Nome do Candidato"*** até a data limite informada no email em que você recebeu o link para esse teste.
+Deve ser criado um repositório público no GitHub com todo o código do programa e com instruções de como executá-lo e como executar os testes. O link do repositório deve ser enviado via email para talentos@involves.com.br com o título ***"[teste-java-2017-07] Nome do Candidato"*** até a data limite informada no email em que você recebeu o link para esse teste.
 
