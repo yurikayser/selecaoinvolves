@@ -31,4 +31,4 @@ Sobre a entrega
 - Crie um branch para o desenvolvimento e não commit nada no master;
 - Adicione no `readme.md` pelo menos DOIS `screenshots` da sua app, e explique porque você desenvolveu sua app da maneira que foi desenvolvida;
 - Adicione também no `readme.md` as instruções para rodar o seu app;
-- Abra um PR do desenvolvimento para o master e envie o link para `ios@involves.com.br` com o título ***"[teste-iOS-2017-01] \<nome_do_candidato\>"*** até a data limite informada no email em que você recebeu o link para esse teste.
+- Abra um PR do desenvolvimento para o master e envie o link para `ios@involves.com.br` com o título ***"[teste-iOS-2017-02] \<nome_do_candidato\>"*** até a data limite informada no email em que você recebeu o link para esse teste.
