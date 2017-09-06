@@ -10,6 +10,9 @@ Olá, estamos muito felizes pelo seu interesse em fazer parte da nossa equipe de
 Sobre o teste
 -------------
 
+> **:warning::warning::warning:ATENÇÃO:** Atualmente estamos tendo uma taxa de **95%** de reprovação dos candidatos nessa etapa. Os maiores motivos de reprovação para candidatos seniores é a não adequação do código aos princípios SOLID. Lembre-se, não estamos avaliando apenas se o código funciona ou não, também utilizamos CLEAN CODE e princípios SOLID como critérios de validação.
+
+
 A prova consiste em criar um programa que leia todas as linhas do arquivo CSV ([faça o download aqui](cidades.csv)) e utilize esse arquivo como base para consultas, onde a primeira linha (cabeçalho) contém o nome das propriedades e as linhas subsequentes os valores. Após ler o arquivo, o programa deve começar a ouvir o console a espera dos comandos de consulta. Abaixo segue a lista dos comandos que devem ser interpretados:
 
 - **count** * - escreve no console a contagem total de registros importados (não deve considerar a linha de cabeçalho)
@@ -37,7 +40,7 @@ Para **Desenvolvedor II**:
  
 - Todos os critérios do Desenvolvedor I
 - Uso adequado de padrões de projetos
-- Flexibilidade do código para futuras evoluções (ex: nova fonte de dados, novos comandos)
+- Flexibilidade do código para futuras evoluções (ex: alterar a fonte de dados de cidades para um arquivo XML, novos comandos)
 
 
 Para **Desenvolvedor III**:
