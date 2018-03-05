@@ -23,10 +23,10 @@ Para fins de avaliação, será levado em consideração a complexidade da imple
 - Nível de cumprimento dos requisitos
 - Estratégia de consumo da API
 - Uso adequado de padrões de projetos
-- Flexibilidade do código para futuras evoluções (ex: buscar por issues do usuário ou pull requests)
 - Criação de testes unitários
+- Abrangência dos testes unitários (qualidade dos testes)
+- Flexibilidade do código para futuras evoluções (ex: buscar por issues do usuário ou pull requests)
 - Utilização de boas práticas da sua ferramenta escolhida
-- Abrangência dos testes unitários
 
 Bônus:
 
