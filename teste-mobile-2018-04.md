@@ -1,8 +1,8 @@
-# Seleção Desenvolvedor
+# Seleção Desenvolvedor(a)
 
 
 
-Olá, estamos muito felizes pelo seu interesse em fazer parte da nossa equipe de desenvolvimento. Gostaríamos de conhecer um pouco mais das suas habilidades como desenvolvedor e, para isso, preparamos o teste descrito abaixo.
+Olá, estamos muito felizes pelo seu interesse em fazer parte da nossa equipe de desenvolvimento. Gostaríamos de conhecer um pouco mais das suas habilidades como desenvolvedor(a) e, para isso, preparamos o teste descrito abaixo.
 
 
 
