@@ -15,6 +15,11 @@ Feito isso, dê start na aplicação. Para garantir que esteja tudo ok, faça um
 
 O desafio consiste na criação de um CRUD via API para fornecedores e produtos. **Não é necessário adicionar um banco de dados na aplicação, somente o que será avaliado são as regras de negócio.** Quando precisar simular uma chamada para o banco de dados, deixe um comentário no código, ou apenas chame uma classe qualquer, vazia, ou que retorne o que você precise.
 
+As funcionalidades da aplicação devem retornar um sucesso ou um erro:
+
+- 200 OK para sucesso
+- Mensagem e código (status http) de erro
+
 Duas entidades vão existir na aplicação:
 
 - Fornecedor
