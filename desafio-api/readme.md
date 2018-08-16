@@ -1,63 +1,42 @@
-Necessário para executar o teste:
+Você vai precisar para executar o teste:
+
 - Eclipse
 - Maven
-- Postman (ou qualquer outro client REST)
+- Postman (ou qualquer outro client http)
 
-Para rodar o projeto:
+Você deve fazer o download do repositório e iniciar o desenvolvimento a partir do exemplo criado.
 
-- Importe o projeto no eclipse
-- rode o seguinte comando no terminal, na pasta raiz do projeto:
-  -“mvn clean install”
-- Execute o projeto no eclipse
-- O projeto estará rodando no seguinte endereço:
-  - “http://localhost:8090”
-- Se tiver problemas com a porta 8090, mude a configuração do sistema no arquivo:
-  - “application.properties”
-- Para verificar se o projeto está ok, faça um GET para: http://localhost:8090/providers/
+Para rodar o exemplo, você deve executar os seguintes comandos na raiz do projeto:
 
-Considerações:
+- `mvn clean install`
+- `mvn tomcat7:run` 
 
-- As únicas classe que devem ser alteradas no projeto são a “ProviderControllerImpl” e a “ProviderServiceImpl”
-- Os métodos que declaram a API e o DAO não devem ser alterados
-- O arquivo “ProviderDao” deve ser desconsiderado. Lá estão escritos códigos que só servem para termos os retornos necessários para o teste da API
+Feito isso, dê start na aplicação. Para garantir que esteja tudo ok, faça uma requisição `GET` para o seguinte endereço: `http://localhost:8080/greeting`.
 
-Exemplos de requests:
+O desafio consiste na criação de um CRUD via API para fornecedores e produtos. **Não é necessário adicionar um banco de dados na aplicação, somente o que será avaliado são as regras de negócio.** Quando precisar simular uma chamada para o banco de dados, deixe um comentário no código, ou apenas chame uma classe qualquer, vazia, ou que retorne o que você precise.
 
-- GET - http://localhost:8090/providers/
-- GET - http://localhost:8090/providers/3
-- POST - http://localhost:8090/providers
-  - Body:
-```
-{
-   "name": "Provider Teste"
-}
+Duas entidades vão existir na aplicação:
 
-```
-- PUT - http://localhost:8090/providers/1
-  - Body:
-```
-{
-   "name": "Provider alterado"
-}
-```
-- DELETE - http://localhost:8090/providers/1
-
-Questões:
-
-- Implemente validações para o método de POST e PUT de Provider
-  - Não deve ser possível adicionar um Provider sem nome
-  - Não deve ser possível adicionar um Provider sem produtos
-  - Não deve ser possível adicionar produtos sem nome em um Provider
-- Faça uma validação no serviço do método de “find” para que retorne um status 404 na requisição quando não é encontrado um Provider na base de dados
-  - Teste a requisição com o ID 99, o código do DAO retorna nulo para a busca de provider com esse ID.
-- Termine de implementar o método “addProductToProvider” fazendo com que seja possível adicionar um produto em um provider já existente.
+- Fornecedor
+  - ID
+  - Nome
+  - Lista de produtos
+  
+- Produto
+  - ID
+  - Nome
 
 
-Dicas:
+Seguem as funcionalidades esperadas:
 
-- Tente utilizar exceções para retornar erros de requisição com mensagens para o usuário final
-- Trabalhe com os Status http corretamente no retorno de requisições
-  - https://www.smartlabsoftware.com/ref/http-status-codes.htm
+- Deve ser possível adicionar um fornecedor
+  - Não deve ser permitido adicionar um fornecedor sem nome
+  - Não deve ser permitido adicionar um fornecedor sem produtos
+- Deve ser possível adicionar um produto
+  - Não deve ser permitido adicionar um produto sem nome
+- Deve ser possível buscar todos os fornecedores
+- Deve ser possível buscar um único fornecedor fornecendo o ID
+- Deve ser possível remover um fornecedor
 
 
- 
+
