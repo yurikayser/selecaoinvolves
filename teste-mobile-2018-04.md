@@ -104,9 +104,8 @@ Você também deverá:
 - Crie um repositório git público (GitHub, GitLab, Bitbucket, etc.). Caso não seja possível, entre em contato com a nossa equipe para negociar alternativas.
 
 
+- Crie um branch para desenvolvimento e não _commit_ nada no master.
 
-- Crie um branch para desenvolvimento e não _commit_ nada no master
+- Não faça fork deste projeto.
 
-
-
-- Abrar um _pull-request_ com o código e envie o link para mobile@involves.com.br com o título **"[teste-2018] <nome_do_candidato>"**
+- Abrar um _pull-request_ com o código e envie o link para mobile@involves.com.br com o título **"[teste-2018] <nome_do_candidato>"**.
