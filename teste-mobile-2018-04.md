@@ -91,6 +91,8 @@ Você também deverá:
 
 - Tratar adequadamente multithreading, gerenciando recursos e retirando processamento da main thread.
 
+- Tratar adequadamente erros ou falhas em tempo de execução.
+
 - Utilizar técnicas modernas para networking e storage, se necessário com apoio de bibliotecas.
 
 - Criar uma interface simples e aderente aos padrões modernos da plataforma.
