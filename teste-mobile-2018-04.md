@@ -83,6 +83,19 @@ Você também deverá:
 - Criar uma pasta chamada screenshots e inclua pelo menos 2 screenshots.
 
 
+- Escrever um código claro e legível, com componentes de responsabilidade bem definida.
+
+- Tratar adequadamente o ciclo de vida da aplicação, incluindo tratamento de rotação de tela, restaurar o aplicativo e outros pontos do ciclo de vida.
+
+- Remover todo código não utilizado, comentado ou de funcionalidade incompleta.
+
+- Tratar adequadamente multithreading, gerenciando recursos e retirando processamento da main thread.
+
+- Utilizar técnicas modernas para networking e storage, se necessário com apoio de bibliotecas.
+
+- Criar uma interface simples e aderente aos padrões modernos da plataforma.
+
+
 
 ### Sobre a entrega
 
