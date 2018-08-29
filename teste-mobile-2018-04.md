@@ -101,7 +101,7 @@ Você também deverá:
 
 
 
-- Crie um repositório público no GitHub
+- Crie um repositório git público (GitHub, GitLab, Bitbucket, etc.). Caso não seja possível, entre em contato com a nossa equipe para negociar alternativas.
 
 
 
