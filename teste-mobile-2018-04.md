@@ -18,11 +18,11 @@ Aqui na Involves (se pronuncia Invôlves) nós gostamos muito de filmes e sentim
 
 
 
-Entendemos que nossos usuários querem ver:
+A versão mínima do aplicativo deve ter:
 
 
 
-- Todos os próximos filmes a estrear, mostrando capa, título e data de lançamento.
+- A lista dos próximos filmes a estrear, mostrando capa, título e data de lançamento.
 
 
 
@@ -30,19 +30,15 @@ Entendemos que nossos usuários querem ver:
 
 
 
-Algumas sugestões para melhorar uso do app são:
+Se possível, a versão avançada do aplicativo pode ter:
 
 
 
-- Acesso offline ao app
+- Cache para funcionamento offline
 
 
 
-- Atualização dos filmes
-
-
-
-- Navegar pelos filmes de forma contínua (páginas, scroll, etc)
+- Opção para a atualizar a lista dos filmes
 
 
 
