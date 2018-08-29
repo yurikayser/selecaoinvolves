@@ -45,6 +45,8 @@ Se possível, a versão avançada do aplicativo pode ter:
 - Pesquisar por filmes
 
 
+Utilize o endpoint de [upcoming movies](https://developers.themoviedb.org/3/movies/get-upcoming) para listar os filmes a estrear e o endpoint [search](https://developers.themoviedb.org/3/search/search-movies) para pesquisar.
+
 
 Mantenha em mente que o seu aplicativo pode deslanchar mundialmente e você precisará implementar novas funcionalidades, seu código deverá estar preparado para tanto. 
 
