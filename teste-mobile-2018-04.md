@@ -33,7 +33,7 @@ Escolha uma plataforma aderente com a nossa realidade atual: Android SDK ou iOS 
 
 ## Avaliação
 
-A nossa avaliação vai ser minusciosa em cima das tecnologias e decisões que você tomou. Para que seu projeto seja bem avaliado, você deverá cumprir com os requisitos apresentados a seguir. O não cumprimento destes requisitos prejudicará a avaliação do projeto.
+A nossa avaliação vai ser minusciosa em cima das tecnologias e decisões que você tomou. Para que seu projeto seja bem avaliado, você deverá cumprir com os requisitos apresentados a seguir. O não cumprimento destes requisitos prejudicará a avaliação do seu projeto.
 
 Você deverá:
 
