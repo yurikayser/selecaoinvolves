@@ -14,13 +14,13 @@ A versão mínima do aplicativo deve ter:
 
 - Ao selecionar um filme, detalhes do filme: Sinópse, gênero, descrição, capa e data de lançamento.
 
-Se possível, a versão avançada do aplicativo pode ter:
+Após cumprir os [critérios de avaliação](#avalia%C3%A7%C3%A3o) para os itens anteriores, seu projeto pode evoluir com as seguintes funcionalidades:
 
-- Cache para funcionamento offline
+- Cache para funcionamento offline.
 
-- Opção para a atualizar a lista dos filmes
+- Opção para a atualizar a lista dos filmes.
 
-- Pesquisar por filmes
+- Pesquisar por filmes.
 
 Utilize o endpoint de [upcoming movies](https://developers.themoviedb.org/3/movies/get-upcoming) para listar os filmes a estrear e o endpoint [search](https://developers.themoviedb.org/3/search/search-movies) para pesquisar.
 
