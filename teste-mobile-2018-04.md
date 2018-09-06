@@ -35,7 +35,7 @@ Escolha uma plataforma aderente com a nossa realidade atual: Android SDK ou iOS 
 
 A nossa avaliação vai ser minusciosa em cima das tecnologias e decisões que você tomou. Para que seu projeto seja bem avaliado, você deverá cumprir com os requisitos apresentados a seguir. O não cumprimento destes requisitos prejudicará a avaliação do seu projeto.
 
-Obrigatóriamente, você deverá:
+Obrigatoriamente, **você deverá**:
 
 - No README, incluir instruções para configurar e rodar o app.
 
@@ -49,7 +49,7 @@ Obrigatóriamente, você deverá:
 
 Para as vagas de nível **Pleno** ou **Sênior**, você **deverá também**:
 
-- Tratar adequadamente multithreading, gerenciando recursos e retirar o máximo de processamento da main thread.
+- Tratar adequadamente multithreading e a utilização de recursos.
 
 - Tratar adequadamente erros ou falhas em tempo de execução.
 
