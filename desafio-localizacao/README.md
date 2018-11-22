@@ -7,7 +7,7 @@ Tenho em mãos uma lista de lojas  que devem ser visitadas. Os representantes tr
 Gostaria de ter um programa que me ajudasse a **definir quais lojas cada representante deve visitar e mostrasse esse resultado.**
 
 ## Observações
-  - Arquivos necessários estão na pasta _data_. o Arquivo referente aos representantes contém a lista de representantes contratados.
+  - Arquivos necessários estão na pasta _selecaoinvolves/desafio-localizacao/data_. o Arquivo referente aos representantes contém a lista de representantes contratados.
   Já o arquivo referente as lojas, possui uma lista de possíveis lojas a visitar. Ambos os arquivos contém nome e localização.
   
 ## Como eu calculo a distância entre duas coordenadas?
