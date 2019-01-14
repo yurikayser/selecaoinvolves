@@ -6,3 +6,4 @@ Repositório dedicado aos testes de seleção para a área de desenvolvimento e 
 - [Vagas de Desenvolvedor iOS Senior 2017/02](teste-iOS-2017-02.md)
 - [Vagas de Desenvolvedor Full Stack 2018/01](desafio-fullstack/README.md)
 - [Vagas de Desenvolvedor Full Stack 2018/11](desafio-localizacao/README.md)
+- [Vagas de Desenvolvedor Mobile 2018/2019](teste-mobile-2018-04.md)
