@@ -14,7 +14,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
 @Component
-public class AlertaMongoGateway implements AlertaGateway{
+public class AlertaMongoGatewayImpl implements AlertaGateway{
 
 	private final String ALERTA_CONSTANT= "alertas";
 

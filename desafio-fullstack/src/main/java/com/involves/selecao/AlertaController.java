@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.involves.selecao.alerta.Alerta;
 import com.involves.selecao.service.BuscaAlertasService;
-import com.involves.selecao.service.ProcessadorAlertas;
+import com.involves.selecao.service.ProcessaAlertasService;
 
 @RestController
 @RequestMapping("/alertas")
@@ -20,7 +20,7 @@ public class AlertaController {
 	private BuscaAlertasService buscaAlertasService;
 	
 	@Autowired
-	private ProcessadorAlertas processador;
+	private ProcessaAlertasService processador;
 	
 	@GetMapping
     public List<Alerta> alertas() {

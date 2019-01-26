@@ -16,7 +16,7 @@ import com.involves.selecao.alerta.Resposta;
 import com.involves.selecao.gateway.AlertaGateway;
 
 @Service
-public class ProcessadorAlertas {
+public class ProcessaAlertasService {
 
 	@Autowired
 	private AlertaGateway gateway;
@@ -24,29 +24,31 @@ public class ProcessadorAlertas {
 	private URL url;
 
 	public void processa() throws IOException {
-		Pesquisa[] dadados = requestAndRead();
-		for (int i = 0; i < dadados.length; i++){
-			for (int j = 0; j < dadados[i].getRespostas().size(); j++){
-				Resposta resposta = dadados[i].getRespostas().get(j);
+		Pesquisa[] dados = requestAndRead();
+		for (int i = 0; i < dados.length; i++){
+			for (int j = 0; j < dados[i].getRespostas().size(); j++){
+				Resposta resposta = dados[i].getRespostas().get(j);
+				// TALVEZ TRANSFORMAR EM UM CASE de acordo com a pergunta
+				//Strings podem virar enums, pergunta e resposta
 				if (resposta.getPergunta().equals("Qual a situação do produto?")) {
 					if(resposta.getResposta().equals("Produto ausente na gondola")){
 					    Alerta alerta = new Alerta();
-					    alerta.setPontoDeVenda(dadados[i].getPonto_de_venda());
+					    alerta.setPontoDeVenda(dados[i].getPonto_de_venda());// camel Case
 					    alerta.setDescricao("Ruptura detectada!");
-					    alerta.setProduto(dadados[i].getProduto());
-					    alerta.setFlTipo(1);
+					    alerta.setProduto(dados[i].getProduto());
+					    alerta.setFlTipo(1); // mudar o nome desta variavel
 					    gateway.salvar(alerta);
 					}
 				} else if(resposta.getPergunta().equals("Qual o preço do produto?")) {
 					int precoColetado = Integer.parseInt(resposta.getResposta());
-					int precoEstipulado = Integer.parseInt(dadados[i].getPreco_estipulado());
+					int precoEstipulado = Integer.parseInt(dados[i].getPreco_estipulado());
 					if(precoColetado > precoEstipulado){
 					    Alerta alerta = new Alerta();
-					    int margem = precoEstipulado - Integer.parseInt(resposta.getResposta());
+					    int margem = precoEstipulado - Integer.parseInt(resposta.getResposta()); // método que calcula a margem
 					    alerta.setMargem(margem);
 					    alerta.setDescricao("Preço acima do estipulado!");
-					    alerta.setProduto(dadados[i].getProduto());
-					    alerta.setPontoDeVenda(dadados[i].getPonto_de_venda());
+					    alerta.setProduto(dados[i].getProduto());
+					    alerta.setPontoDeVenda(dados[i].getPonto_de_venda());
 					    alerta.setFlTipo(2);
 					    gateway.salvar(alerta);
 					} else if(precoColetado < precoEstipulado){
@@ -54,8 +56,8 @@ public class ProcessadorAlertas {
 					    int margem = precoEstipulado - Integer.parseInt(resposta.getResposta());
 					    alerta.setMargem(margem);
 					    alerta.setDescricao("Preço abaixo do estipulado!");
-					    alerta.setProduto(dadados[i].getProduto());
-					    alerta.setPontoDeVenda(dadados[i].getPonto_de_venda());
+					    alerta.setProduto(dados[i].getProduto());
+					    alerta.setPontoDeVenda(dados[i].getPonto_de_venda());
 					    alerta.setFlTipo(3);
 					    gateway.salvar(alerta);
 					}
@@ -65,7 +67,7 @@ public class ProcessadorAlertas {
 			} 
 		}
 	}
-	//talvez passar isso para outr classe
+	//talvez passar isso para outra classe
 	private Pesquisa[] requestAndRead() throws IOException {
 		this.url = new URL("https://selecao-involves.agilepromoter.com/pesquisas");
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
