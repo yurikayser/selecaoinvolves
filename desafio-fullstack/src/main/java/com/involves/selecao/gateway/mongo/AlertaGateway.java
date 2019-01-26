@@ -1,4 +1,4 @@
-package com.involves.selecao.gateway;
+package com.involves.selecao.gateway.mongo;
 
 import java.util.List;
 

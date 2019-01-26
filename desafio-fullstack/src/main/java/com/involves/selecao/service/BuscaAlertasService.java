@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.involves.selecao.alerta.Alerta;
-import com.involves.selecao.gateway.AlertaGateway;
+import com.involves.selecao.gateway.mongo.AlertaGateway;
 
 @Service
 public class BuscaAlertasService {
