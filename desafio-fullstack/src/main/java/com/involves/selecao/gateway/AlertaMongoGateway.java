@@ -15,14 +15,17 @@ import com.mongodb.client.MongoDatabase;
 
 @Component
 public class AlertaMongoGateway implements AlertaGateway{
-	
+
+	private final String ALERTA_CONSTANT= "alertas";
+
 	@Autowired
 	private MongoDbFactory mongoFactory;
+
 
 	@Override
 	public void salvar(Alerta alerta) {
 		MongoDatabase database = mongoFactory.getDb();
-		MongoCollection<Document> collection = database.getCollection("Alertas");
+		MongoCollection<Document> collection = database.getCollection(this.ALERTA_CONSTANT);
 		Document doc = new Document("ponto_de_venda", alerta.getPontoDeVenda())
                 .append("descricao", alerta.getDescricao())
                 .append("tipo", alerta.getFlTipo())
@@ -33,11 +36,11 @@ public class AlertaMongoGateway implements AlertaGateway{
 
 	@Override
 	public List<Alerta> buscarTodos() {
-		MongoDatabase database = mongoFactory.getDb();
-		MongoCollection<Document> collection = database.getCollection("Alertas");
-		FindIterable<Document> db = collection.find();
 		List<Alerta> alertas = new ArrayList<>();
-		for (Document document : db) {
+		MongoDatabase database = mongoFactory.getDb();
+		FindIterable<Document> table = database.getCollection(this.ALERTA_CONSTANT).find();
+
+		for (Document document : table) {
 			Alerta alerta = new Alerta();
 			alerta.setDescricao(document.getString("descricao"));
 			alerta.setFlTipo(document.getInteger("tipo"));
@@ -46,6 +49,7 @@ public class AlertaMongoGateway implements AlertaGateway{
 			alerta.setProduto(document.getString("produto"));
 			alertas.add(alerta);
 		}
+
 		return alertas;
 	}
 }

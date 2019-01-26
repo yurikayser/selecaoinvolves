@@ -10,11 +10,11 @@ public class Pesquisa {
 	private String preco_estipulado;
 	private List<Resposta> respostas;
 	
-	public int getId() {
-		return id;
-	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getId() {
+		return id;
 	}
 	public String getRotulo() {
 		return rotulo;

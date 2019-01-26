@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,46 +20,33 @@ public class ProcessadorAlertas {
 
 	@Autowired
 	private AlertaGateway gateway;
-	
-	public void processa() throws IOException {
-		URL url = new URL("http://selecao-involves.agilepromoter.com/pesquisas");
-		HttpURLConnection con = (HttpURLConnection) url.openConnection();
-		con.setRequestMethod("GET");
-		
-		BufferedReader in = new BufferedReader(
-		  new InputStreamReader(con.getInputStream(), "UTF-8"));
-		String inputLine;
-		StringBuffer content = new StringBuffer();
-		
-		while ((inputLine = in.readLine()) != null) {
-		    content.append(inputLine);
-		}
-		in.close();
 
-		Gson gson = new Gson();
-		Pesquisa[] ps =  gson.fromJson(content.toString(), Pesquisa[].class);
-		for (int i = 0; i < ps.length; i++){
-			for (int j = 0; j < ps[i].getRespostas().size(); j++){
-				Resposta resposta = ps[i].getRespostas().get(j);
+	private URL url;
+
+	public void processa() throws IOException {
+		Pesquisa[] dadados = requestAndRead();
+		for (int i = 0; i < dadados.length; i++){
+			for (int j = 0; j < dadados[i].getRespostas().size(); j++){
+				Resposta resposta = dadados[i].getRespostas().get(j);
 				if (resposta.getPergunta().equals("Qual a situação do produto?")) {
 					if(resposta.getResposta().equals("Produto ausente na gondola")){
 					    Alerta alerta = new Alerta();
-					    alerta.setPontoDeVenda(ps[i].getPonto_de_venda());
+					    alerta.setPontoDeVenda(dadados[i].getPonto_de_venda());
 					    alerta.setDescricao("Ruptura detectada!");
-					    alerta.setProduto(ps[i].getProduto());
+					    alerta.setProduto(dadados[i].getProduto());
 					    alerta.setFlTipo(1);
 					    gateway.salvar(alerta);
 					}
 				} else if(resposta.getPergunta().equals("Qual o preço do produto?")) {
 					int precoColetado = Integer.parseInt(resposta.getResposta());
-					int precoEstipulado = Integer.parseInt(ps[i].getPreco_estipulado());
+					int precoEstipulado = Integer.parseInt(dadados[i].getPreco_estipulado());
 					if(precoColetado > precoEstipulado){
 					    Alerta alerta = new Alerta();
 					    int margem = precoEstipulado - Integer.parseInt(resposta.getResposta());
 					    alerta.setMargem(margem);
 					    alerta.setDescricao("Preço acima do estipulado!");
-					    alerta.setProduto(ps[i].getProduto());
-					    alerta.setPontoDeVenda(ps[i].getPonto_de_venda());
+					    alerta.setProduto(dadados[i].getProduto());
+					    alerta.setPontoDeVenda(dadados[i].getPonto_de_venda());
 					    alerta.setFlTipo(2);
 					    gateway.salvar(alerta);
 					} else if(precoColetado < precoEstipulado){
@@ -66,8 +54,8 @@ public class ProcessadorAlertas {
 					    int margem = precoEstipulado - Integer.parseInt(resposta.getResposta());
 					    alerta.setMargem(margem);
 					    alerta.setDescricao("Preço abaixo do estipulado!");
-					    alerta.setProduto(ps[i].getProduto());
-					    alerta.setPontoDeVenda(ps[i].getPonto_de_venda());
+					    alerta.setProduto(dadados[i].getProduto());
+					    alerta.setPontoDeVenda(dadados[i].getPonto_de_venda());
 					    alerta.setFlTipo(3);
 					    gateway.salvar(alerta);
 					}
@@ -76,6 +64,26 @@ public class ProcessadorAlertas {
 				}
 			} 
 		}
+	}
+	//talvez passar isso para outr classe
+	private Pesquisa[] requestAndRead() throws IOException {
+		this.url = new URL("https://selecao-involves.agilepromoter.com/pesquisas");
+		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+		connection.setRequestMethod("GET");
+
+		BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
+		StringBuffer buffer = new StringBuffer();
+
+		String inputLine = reader.readLine();
+		while (Objects.nonNull(inputLine)) {
+		    buffer.append(inputLine);
+		    inputLine = reader.readLine();
+		}
+
+		reader.close();
+
+		Gson gson = new Gson();
+		return gson.fromJson(buffer.toString(), Pesquisa[].class);
 	}
 }
 
