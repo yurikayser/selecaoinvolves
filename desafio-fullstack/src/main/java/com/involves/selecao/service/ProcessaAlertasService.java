@@ -6,6 +6,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Objects;
 
+import com.involves.selecao.enums.PerguntasEnum;
+import com.involves.selecao.enums.RespostasEnum;
 import com.involves.selecao.gateway.pesquisa.PesquisaGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,13 +29,12 @@ public class ProcessaAlertasService {
 
 	public void processa() throws IOException {
 		Pesquisa[] dados = this.pesquisaGateway.pesquisaDadosAlertas();
+
 		for (int i = 0; i < dados.length; i++){
 			for (int j = 0; j < dados[i].getRespostas().size(); j++){
 				Resposta resposta = dados[i].getRespostas().get(j);
-				// TALVEZ TRANSFORMAR EM UM CASE de acordo com a pergunta
-				//Strings podem virar enums, pergunta e resposta
-				if (resposta.getPergunta().equals("Qual a situação do produto?")) {
-					if(resposta.getResposta().equals("Produto ausente na gondola")){
+				if (resposta.getPergunta().equals(PerguntasEnum.SITUACAO_PRODUTO.getDescricao())) {
+					if(resposta.getResposta().equals(RespostasEnum.AUSENTE_GONDOLA.getDescricao())){
 					    Alerta alerta = new Alerta();
 					    alerta.setPontoDeVenda(dados[i].getPonto_de_venda());// camel Case
 					    alerta.setDescricao("Ruptura detectada!");
@@ -41,7 +42,7 @@ public class ProcessaAlertasService {
 					    alerta.setFlTipo(1); // mudar o nome desta variavel
 					    alertaGateway.salvar(alerta);
 					}
-				} else if(resposta.getPergunta().equals("Qual o preço do produto?")) {
+				} else if(resposta.getPergunta().equals(PerguntasEnum.PRECO_PRODUTO.getDescricao())) {
 					int precoColetado = Integer.parseInt(resposta.getResposta());
 					int precoEstipulado = Integer.parseInt(dados[i].getPreco_estipulado());
 					if(precoColetado > precoEstipulado){
@@ -68,6 +69,7 @@ public class ProcessaAlertasService {
 				}
 			} 
 		}
+
 	}
 }
 
