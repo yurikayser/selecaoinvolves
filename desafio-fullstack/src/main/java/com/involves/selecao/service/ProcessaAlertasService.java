@@ -22,6 +22,7 @@ public class ProcessaAlertasService {
 	private PesquisaGateway pesquisaGateway;
 
 	public void processa() throws IOException {
+		// retirar esta axception
 		Pesquisa[] dados = this.pesquisaGateway.pesquisaDadosAlertas();
 		for (Pesquisa pesquisa : dados){
 			pesquisa.getRespostas().forEach(resposta -> this.processPesquisa(resposta, pesquisa));
@@ -38,21 +39,21 @@ public class ProcessaAlertasService {
 		} else{
 			alerta = this.createAlertaParticipacao(resposta,pesquisa);
 		}
-//		this.alertaGateway.salvar(alerta);
+		this.alertaGateway.salvar(alerta);
 	}
 
 	public Alerta createAlertaParticipacao(Resposta resposta, Pesquisa pesquisa) {
 		Alerta alerta = null;
 		int margem = Integer.parseInt(pesquisa.getParticipacao_estipulada()) - Integer.parseInt(resposta.getResposta());
 
-		if(margem > 0){
+		if(margem < 0){
 			alerta = new Alerta();
 			alerta.setMargem(margem);
 			alerta.setDescricao("Participação superior ao estipulado");
 			alerta.setCategoria(pesquisa.getCategoria());
 			alerta.setPontoDeVenda(pesquisa.getPonto_de_venda());
 			alerta.setFlTipo(4);
-		}else if(margem < 0){
+		}else if(margem > 0){
 			alerta = new Alerta();
 			alerta.setMargem(margem);
 			alerta.setDescricao("Participação inferior ao estipulado");
