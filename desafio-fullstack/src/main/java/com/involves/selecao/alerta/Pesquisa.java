@@ -11,7 +11,24 @@ public class Pesquisa {
 	private String categoria;
 	private String participacao_estipulada;
 	private List<Resposta> respostas;
-	
+
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
+	public String getParticipacao_estipulada() {
+		return participacao_estipulada;
+	}
+
+	public void setParticipacao_estipulada(String participacao_estipulada) {
+		this.participacao_estipulada = participacao_estipulada;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}

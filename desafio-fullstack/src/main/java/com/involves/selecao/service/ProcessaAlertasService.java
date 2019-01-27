@@ -30,7 +30,7 @@ public class ProcessaAlertasService {
 	}
 
 	public void processPesquisa(Resposta resposta, Pesquisa pesquisa) {
-		Alerta alerta; //remover
+		Alerta alerta;
 		if (resposta.getPergunta().equals(PerguntasEnum.SITUACAO_PRODUTO.getDescricao())) {
 			alerta = createAlertaSituacaoProduto(resposta,pesquisa);
 		} else if(resposta.getPergunta().equals(PerguntasEnum.PRECO_PRODUTO.getDescricao())) {
@@ -38,12 +38,29 @@ public class ProcessaAlertasService {
 		} else{
 			alerta = this.createAlertaParticipacao(resposta,pesquisa);
 		}
-		this.alertaGateway.salvar(alerta);
+//		this.alertaGateway.salvar(alerta);
 	}
 
 	public Alerta createAlertaParticipacao(Resposta resposta, Pesquisa pesquisa) {
-		Alerta alerta;
-		return null;
+		Alerta alerta = null;
+		int margem = Integer.parseInt(pesquisa.getParticipacao_estipulada()) - Integer.parseInt(resposta.getResposta());
+
+		if(margem > 0){
+			alerta = new Alerta();
+			alerta.setMargem(margem);
+			alerta.setDescricao("Participação superior ao estipulado");
+			alerta.setCategoria(pesquisa.getCategoria());
+			alerta.setPontoDeVenda(pesquisa.getPonto_de_venda());
+			alerta.setFlTipo(4);
+		}else if(margem < 0){
+			alerta = new Alerta();
+			alerta.setMargem(margem);
+			alerta.setDescricao("Participação inferior ao estipulado");
+			alerta.setCategoria(pesquisa.getCategoria());
+			alerta.setPontoDeVenda(pesquisa.getPonto_de_venda());
+			alerta.setFlTipo(5);
+		}
+		return alerta;
 	}
 
 	public Alerta createAlertaPrecoProduto(Resposta resposta, Pesquisa pesquisa) {
