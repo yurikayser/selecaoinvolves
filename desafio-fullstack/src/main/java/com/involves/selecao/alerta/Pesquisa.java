@@ -8,6 +8,8 @@ public class Pesquisa {
 	private String ponto_de_venda;
 	private String produto;
 	private String preco_estipulado;
+	private String categoria;
+	private String participacao_estipulada;
 	private List<Resposta> respostas;
 	
 	public void setId(int id) {

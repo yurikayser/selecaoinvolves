@@ -2,6 +2,7 @@ package com.involves.selecao.gateway.mongo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,14 +24,17 @@ public class AlertaMongoGatewayImpl implements AlertaGateway{
 
 	@Override
 	public void salvar(Alerta alerta) {
-		MongoDatabase database = mongoFactory.getDb();
-		MongoCollection<Document> collection = database.getCollection(this.ALERTA_CONSTANT);
-		Document doc = new Document("ponto_de_venda", alerta.getPontoDeVenda())
-                .append("descricao", alerta.getDescricao())
-                .append("tipo", alerta.getFlTipo())
-                .append("margem", alerta.getMargem())
-                .append("produto", alerta.getProduto());
-		collection.insertOne(doc);
+		if(Objects.nonNull(alerta)){
+
+			MongoDatabase database = mongoFactory.getDb();
+			MongoCollection<Document> collection = database.getCollection(this.ALERTA_CONSTANT);
+			Document doc = new Document("ponto_de_venda", alerta.getPontoDeVenda())
+					.append("descricao", alerta.getDescricao())
+					.append("tipo", alerta.getFlTipo())
+					.append("margem", alerta.getMargem())
+					.append("produto", alerta.getProduto());
+			collection.insertOne(doc);
+		}
 	}
 
 	@Override

@@ -29,47 +29,54 @@ public class ProcessaAlertasService {
 
 	}
 
-	private void processPesquisa(Resposta resposta, Pesquisa pesquisa) {
+	public void processPesquisa(Resposta resposta, Pesquisa pesquisa) {
+		Alerta alerta; //remover
 		if (resposta.getPergunta().equals(PerguntasEnum.SITUACAO_PRODUTO.getDescricao())) {
-			createAlertaSituacaoProduto(resposta,pesquisa);
+			alerta = createAlertaSituacaoProduto(resposta,pesquisa);
 		} else if(resposta.getPergunta().equals(PerguntasEnum.PRECO_PRODUTO.getDescricao())) {
-			createAlertaPrecoProduto(resposta,pesquisa);
-		} else {
-			System.out.println("Alerta ainda não implementado!");
+			alerta = createAlertaPrecoProduto(resposta,pesquisa);
+		} else{
+			alerta = this.createAlertaParticipacao(resposta,pesquisa);
 		}
+		this.alertaGateway.salvar(alerta);
 	}
 
-	private void createAlertaPrecoProduto(Resposta resposta, Pesquisa pesquisa) {
-		int margem = Integer.parseInt(pesquisa.getPreco_estipulado()) - Integer.parseInt(resposta.getResposta());
+	public Alerta createAlertaParticipacao(Resposta resposta, Pesquisa pesquisa) {
+		Alerta alerta;
+		return null;
+	}
 
+	public Alerta createAlertaPrecoProduto(Resposta resposta, Pesquisa pesquisa) {
+		int margem = Integer.parseInt(pesquisa.getPreco_estipulado()) - Integer.parseInt(resposta.getResposta());
+		Alerta alerta = null;
 		if(margem < 0){
-			Alerta alerta = new Alerta();
+			alerta = new Alerta();
 			alerta.setMargem(margem);
 			alerta.setDescricao("Preço acima do estipulado!");
 			alerta.setProduto(pesquisa.getProduto());
 			alerta.setPontoDeVenda(pesquisa.getPonto_de_venda());
 			alerta.setFlTipo(2);
-			alertaGateway.salvar(alerta);
 		} else if(margem > 0){
-			Alerta alerta = new Alerta();
+			alerta = new Alerta();
 			alerta.setMargem(margem);
 			alerta.setDescricao("Preço abaixo do estipulado!");
 			alerta.setProduto(pesquisa.getProduto());
 			alerta.setPontoDeVenda(pesquisa.getPonto_de_venda());
 			alerta.setFlTipo(3);
-			alertaGateway.salvar(alerta);
 		}
+		return alerta;
 	}
 
-	private void createAlertaSituacaoProduto(Resposta resposta,Pesquisa pesquisa) {
+	public Alerta createAlertaSituacaoProduto(Resposta resposta, Pesquisa pesquisa) {
+		Alerta alerta = null;
 		if(resposta.getResposta().equals(RespostasEnum.AUSENTE_GONDOLA.getDescricao())){
-			Alerta alerta = new Alerta();
+			alerta = new Alerta();
 			alerta.setPontoDeVenda(pesquisa.getPonto_de_venda());
 			alerta.setDescricao("Ruptura detectada!");
 			alerta.setProduto(pesquisa.getProduto());
 			alerta.setFlTipo(1);
-			alertaGateway.salvar(alerta);
 		}
+		return alerta;
 	}
 }
 
